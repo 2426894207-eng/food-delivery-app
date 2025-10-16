@@ -3,9 +3,9 @@ name: Build Android APK
 on:
   # 手动触发
   workflow_dispatch:
-  # 监听master分支的推送
+  # 监听 main 和 master 分支的推送
   push:
-    branches: [ master ]
+    branches: [ main, master ]
 
 jobs:
   build-android:
@@ -84,7 +84,7 @@ EOL
       - name: Find APK file
         run: |
           mkdir -p output
-          find . -name "*.apk" -exec cp {} output/ \;
+          find . -name "*.apk" -exec cp {} output/ \; 
           ls -la output/
       
       - name: Upload APK artifact
