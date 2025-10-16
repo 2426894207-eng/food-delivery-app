@@ -34,7 +34,7 @@ jobs:
       - name: Create buildozer.spec (if not exists)
         run: |
           if [ ! -f buildozer.spec ]; then
-            cat > buildozer.spec << 'EOL'
+            cat > buildozer.spec << 'EOF'
 [app]
 title = FoodDeliveryApp
 package.name = fooddelivery
@@ -56,13 +56,13 @@ android.sdk = 31
 android.ndk = 25.2.9519653
 android.build_tools_version = 31.0.0
 android.accept_sdk_license = True
-EOL
+EOF
           fi
       
       - name: Create main.py (if not exists)
         run: |
           if [ ! -f main.py ]; then
-            cat > main.py << 'EOL'
+            cat > main.py << 'EOF'
 from kivy.app import App
 from kivy.uix.label import Label
 
@@ -72,7 +72,7 @@ class FoodDeliveryApp(App):
 
 if __name__ == '__main__':
     FoodDeliveryApp().run()
-EOL
+EOF
           fi
       
       - name: Build APK
