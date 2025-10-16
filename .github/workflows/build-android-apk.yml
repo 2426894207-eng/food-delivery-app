@@ -3,9 +3,9 @@ name: Build Android APK
 on:
   # 手动触发
   workflow_dispatch:
-  # 也可以在推送到main分支时自动触发
+  # 监听master分支的推送
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build-android:
@@ -49,12 +49,13 @@ log_level = 2
 warn_on_root = 0
 
 [app:android]
-requirements = python3,kivy==2.1.0,pillow
+requirements = python3,kivy==2.1.0,pillow,requests
 android.api = 31
 android.minapi = 21
 android.sdk = 31
 android.ndk = 25.2.9519653
 android.build_tools_version = 31.0.0
+pip_index_url = https://mirrors.aliyun.com/pypi/simple/
 android.accept_sdk_license = True
 EOL
           fi
