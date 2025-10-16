@@ -92,3 +92,9 @@ EOF
           name: fooddelivery-app
           path: output/*.apk
           retention-days: 30
+          
+      - name: Release APK Publisher
+        uses: nightcrawler-/action-release-apk@1.0.2
+        with:
+          # Github secret token to allow automated publishing of APK to release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
